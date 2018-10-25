@@ -21,8 +21,12 @@ for i, choice in enumerate(choices):
 choice = input("Enter choice number: ")
 driver2 = webdriver.Chrome()
 quote = get_quote(driver2, int(choice))
-
 print(quote)
+print("Do you like this post? y/n")
+if input() == 'n':
+	quote = get_quote(driver2, int(choice))
+print(quote)
+
 driver = webdriver.Chrome()
 driver = login_twitter(driver, username, password)
 

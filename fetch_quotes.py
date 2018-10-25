@@ -25,11 +25,11 @@ def get_quote(driver, choice):
     #choices[2].click()
     time.sleep(1)
     quotes=driver.find_elements_by_xpath('//*[@face="verdana,arial,helvetica"]')
-    #next_25=driver.find_elements_by_xpath('//*[contains(text(), "Next 25 >>")]')
+    next_25=driver.find_elements_by_xpath('//*[contains(text(), "Next 25 >>")]')
     c=True
     l=[]
     while(c):
-        #next_25=driver.find_elements_by_xpath('//*[contains(text(), "Next 25 >>")]')
+        next_25=driver.find_elements_by_xpath('//*[contains(text(), "Next 25 >>")]')
         quotes=driver.find_elements_by_xpath('//*[@face="verdana,arial,helvetica"]')
         i=0
         while((i*3 + 6) < len(quotes)):
@@ -37,10 +37,10 @@ def get_quote(driver, choice):
                 l.append(quotes[i*3 + 5].text)
             i+=1
             
-        #if(len(next_25)!=0):
-            #next_25[0].click()
-        #else:
-        c = False
+        if(len(next_25)!=0):
+            next_25[0].click()
+        else:
+			c = False
     
     
     c = random.randint(0,len(l))
